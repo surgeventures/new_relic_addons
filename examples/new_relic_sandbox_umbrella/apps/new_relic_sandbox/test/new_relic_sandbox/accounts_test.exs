@@ -63,4 +63,63 @@ defmodule NewRelicSandbox.AccountsTest do
       assert %Ecto.Changeset{} = Accounts.change_user(user)
     end
   end
+
+  describe "avatars" do
+    alias NewRelicSandbox.Accounts.Avatar
+
+    @valid_attrs %{url: "some url"}
+    @update_attrs %{url: "some updated url"}
+    @invalid_attrs %{url: nil}
+
+    def avatar_fixture(attrs \\ %{}) do
+      {:ok, avatar} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Accounts.create_avatar()
+
+      avatar
+    end
+
+    test "list_avatars/0 returns all avatars" do
+      avatar = avatar_fixture()
+      assert Accounts.list_avatars() == [avatar]
+    end
+
+    test "get_avatar!/1 returns the avatar with given id" do
+      avatar = avatar_fixture()
+      assert Accounts.get_avatar!(avatar.id) == avatar
+    end
+
+    test "create_avatar/1 with valid data creates a avatar" do
+      assert {:ok, %Avatar{} = avatar} = Accounts.create_avatar(@valid_attrs)
+      assert avatar.url == "some url"
+    end
+
+    test "create_avatar/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Accounts.create_avatar(@invalid_attrs)
+    end
+
+    test "update_avatar/2 with valid data updates the avatar" do
+      avatar = avatar_fixture()
+      assert {:ok, %Avatar{} = avatar} = Accounts.update_avatar(avatar, @update_attrs)
+      assert avatar.url == "some updated url"
+    end
+
+    test "update_avatar/2 with invalid data returns error changeset" do
+      avatar = avatar_fixture()
+      assert {:error, %Ecto.Changeset{}} = Accounts.update_avatar(avatar, @invalid_attrs)
+      assert avatar == Accounts.get_avatar!(avatar.id)
+    end
+
+    test "delete_avatar/1 deletes the avatar" do
+      avatar = avatar_fixture()
+      assert {:ok, %Avatar{}} = Accounts.delete_avatar(avatar)
+      assert_raise Ecto.NoResultsError, fn -> Accounts.get_avatar!(avatar.id) end
+    end
+
+    test "change_avatar/1 returns a avatar changeset" do
+      avatar = avatar_fixture()
+      assert %Ecto.Changeset{} = Accounts.change_avatar(avatar)
+    end
+  end
 end

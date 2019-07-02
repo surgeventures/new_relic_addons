@@ -11,6 +11,13 @@ provide missing monitoring capabilities.
 - `NewRelicAddons.Ecto` - provides Ecto introspection with best database monitoring solution that's
   possible with current API of the `NewRelic` library
 
+## Example
+
+Sample Phoenix + Ecto application may be found in
+[examples/new_relic_sandbox_umbrella](https://github.com/surgeventures/new_relic_addons/tree/master/examples/new_relic_sandbox_umbrella).
+
+Check out its README.md for more information.
+
 ## Notes
 
 This library uses private APIs of `NewRelic` library, i.e. it calls modules without `@moduledoc`. It

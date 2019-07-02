@@ -28,6 +28,7 @@ after, but still - that's not great.
 This means that all updates of base `:new_relic_agent` package, even between patch versions, should
 be thoroughly reviewed for breaking changes within functions that are called or overridden.
 
-The long-term plan is to fill an issue in agent's repo and count on its API getting extended and
+The long-term plan is to [fill an issue in agent's
+repo](https://github.com/newrelic/elixir_agent/issues/122) and count on its API getting extended and
 refined so that in the future we'd only need to rely on public APIs without sacrificing key NR
 integration perks.

@@ -15,6 +15,12 @@ provide Ecto support and decorators.
 - `NewRelicAddons.Decorators` - provides stackable function decoration solution based on
   battle-proven `Decorator` library, with sane defaults and more configurability
 
+## Usage
+
+The docs can be found at [https://hexdocs.pm/new_relic_addons](https://hexdocs.pm/new_relic_addons).
+
+They include usage information and examples for all available features.
+
 ## Example
 
 Sample Phoenix + Ecto application may be found in

@@ -1,13 +1,30 @@
 defmodule NewRelicAddons.MixProject do
   use Mix.Project
 
+  @name "NewRelicAddons"
+  @description "Builds on top of New Relic's Agent to provide missing monitoring capabilities"
+  @github_url "https://github.com/surgeventures/new_relic_addons"
+
   def project do
     [
       app: :new_relic_addons,
       version: "0.1.0",
-      elixir: "~> 1.9",
+      elixir: "~> 1.7",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      name: @name,
+      description: @description,
+      package: [
+        maintainers: ["Karol Słuszniak"],
+        licenses: ["MIT"],
+        links: %{
+          "GitHub" => @github_url
+        }
+      ],
+      docs: [
+        main: @name,
+        source_url: @github_url
+      ]
     ]
   end
 

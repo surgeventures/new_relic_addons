@@ -5,15 +5,15 @@
 [![Hex version](https://img.shields.io/hexpm/v/new_relic_addons.svg)](https://hex.pm/packages/new_relic_addons)
 
 Builds on top of [New Relic's Open Source Elixir Agent](https://github.com/newrelic/elixir_agent) to
-provide missing monitoring capabilities.
+provide Ecto support and decorators.
 
 ## Features
 
-- `NewRelicAddons.Decorators` - provides stackable function decoration solution based on
-  battle-proven `Decorator` library, with sane defaults and more configurability
-
 - `NewRelicAddons.Ecto` - provides Ecto introspection with best database monitoring solution that's
   possible with current API of the `NewRelic` library
+
+- `NewRelicAddons.Decorators` - provides stackable function decoration solution based on
+  battle-proven `Decorator` library, with sane defaults and more configurability
 
 ## Example
 

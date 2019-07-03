@@ -2,7 +2,7 @@ defmodule NewRelicAddons.MixProject do
   use Mix.Project
 
   @name "NewRelicAddons"
-  @description "Builds on top of New Relic's Agent to provide missing monitoring capabilities"
+  @description "Builds on top of New Relic's Agent to provide Ecto support and decorators"
   @github_url "https://github.com/surgeventures/new_relic_addons"
 
   def project do

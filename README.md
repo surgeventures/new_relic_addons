@@ -1,5 +1,9 @@
 # NewRelicAddons
 
+[![license](https://img.shields.io/github/license/surgeventures/new_relic_addons.svg)](https://github.com/surgeventures/new_relic_addons/blob/master/LICENSE.md)
+[![build status](https://img.shields.io/circleci/project/github/surgeventures/new_relic_addons/master.svg)](https://circleci.com/gh/surgeventures/surgeventures/new_relic_addons/tree/master)
+[![Hex version](https://img.shields.io/hexpm/v/new_relic_addons.svg)](https://hex.pm/packages/new_relic_addons)
+
 Builds on top of [New Relic's Open Source Elixir Agent](https://github.com/newrelic/elixir_agent) to
 provide missing monitoring capabilities.
 

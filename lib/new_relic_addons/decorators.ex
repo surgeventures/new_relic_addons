@@ -94,10 +94,8 @@ defmodule NewRelicAddons.Decorators do
   # For test env we are not creating another tasks, as Ecto in shared mode is unable to close them.
   defp start_new_relic_transaction(:test, category_name, name, body) do
     quote do
-      fn ->
-        NewRelic.start_transaction(unquote(category_name), unquote(name))
-        unquote(body)
-      end
+      NewRelic.start_transaction(unquote(category_name), unquote(name))
+      unquote(body)
     end
   end
 

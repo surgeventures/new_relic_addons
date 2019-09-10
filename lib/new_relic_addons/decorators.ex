@@ -88,6 +88,18 @@ defmodule NewRelicAddons.Decorators do
 
     unless is_binary(category_name), do: raise(ArgumentError, "expected category name string")
 
+    start_new_relic_transaction(Mix.env(), category_name, name, body)
+  end
+
+  # For test env we are not creating another tasks, as Ecto in shared mode is unable to close them.
+  defp start_new_relic_transaction(:test, category_name, name, body) do
+    quote do
+      NewRelic.start_transaction(unquote(category_name), unquote(name))
+      unquote(body)
+    end
+  end
+
+  defp start_new_relic_transaction(_, category_name, name, body) do
     quote do
       fn ->
         NewRelic.start_transaction(unquote(category_name), unquote(name))
